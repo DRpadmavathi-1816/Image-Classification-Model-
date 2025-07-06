@@ -1,0 +1,94 @@
+"""
+CNN for CIFAR-10 – fixed & robust
+TensorFlow/Keras 2.17+ • Python 3.10+
+"""
+import os, sys, time
+import numpy as np
+import tensorflow as tf
+from tensorflow.keras import layers, models, callbacks
+import matplotlib.pyplot as plt
+
+# ------------------------------------
+# 1. Load & preprocess CIFAR-10
+# ------------------------------------
+(x_train, y_train), (x_test, y_test) = tf.keras.datasets.cifar10.load_data()
+
+# Convert to float32 *before* normalising
+x_train = x_train.astype("float32") / 255.0
+x_test  = x_test.astype("float32")  / 255.0
+
+# Flatten labels to shape (n,) and cast to int32
+y_train = y_train.flatten().astype("int32")
+y_test  = y_test.flatten().astype("int32")
+
+# ------------------------------------
+# 2. Build the CNN
+# ------------------------------------
+model = models.Sequential([
+    layers.Conv2D(32, 3, activation="relu", padding="same",
+                  input_shape=(32, 32, 3)),
+    layers.MaxPooling2D(),
+
+    layers.Conv2D(64, 3, activation="relu", padding="same"),
+    layers.MaxPooling2D(),
+
+    layers.Conv2D(128, 3, activation="relu", padding="same"),
+    layers.MaxPooling2D(),
+
+    layers.Flatten(),
+    layers.Dense(128, activation="relu"),
+    layers.Dropout(0.3),
+    layers.Dense(10, activation="softmax")
+])
+
+model.compile(
+    optimizer="adam",
+    loss="sparse_categorical_crossentropy",
+    metrics=["accuracy"]
+)
+
+model.summary()
+
+# ------------------------------------
+# 3. Train (with early stopping)
+# ------------------------------------
+early_stop = callbacks.EarlyStopping(
+    monitor="val_accuracy",
+    patience=3,
+    restore_best_weights=True
+)
+
+history = model.fit(
+    x_train, y_train,
+    epochs=30,
+    batch_size=64,
+    validation_split=0.2,
+    callbacks=[early_stop],
+    verbose=2
+)
+
+# ------------------------------------
+# 4. Evaluate
+# ------------------------------------
+test_loss, test_acc = model.evaluate(x_test, y_test, verbose=0)
+print(f"\n🧪  Test accuracy: {test_acc:.4f}")
+
+# ------------------------------------
+# 5. Plot training history (skip when running headless)
+# ------------------------------------
+if sys.stdin.isatty():  # crude check: only plot in interactive sessions
+    plt.figure(figsize=(8,5))
+    plt.plot(history.history["accuracy"], label="Train")
+    plt.plot(history.history["val_accuracy"], label="Val")
+    plt.xlabel("Epoch")
+    plt.ylabel("Accuracy")
+    plt.title("Training vs. Validation Accuracy")
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
+
+# ------------------------------------
+# 6. Save the model
+# ------------------------------------
+model.save("cnn_cifar10_model.h5")
+print("✅  Model saved as cnn_cifar10_model.h5")
