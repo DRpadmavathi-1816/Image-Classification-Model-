@@ -7,7 +7,7 @@ Image Classification project using CNN in TensorFlow:
 - Name : Dhupam Renuka Padmavathi 
 - Company : CODETECH IT SOLUTIONS PVT Ltd.
 - Domain : Machine learning 
-- Intern Id : CT06DF
+- Intern Id : CT06DF769
 - Duration : 6 Weeks 
 - Mentor : Neela Shantosh 
 
