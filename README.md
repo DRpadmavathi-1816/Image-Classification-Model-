@@ -11,7 +11,7 @@ Image Classification project using CNN in TensorFlow:
 - Mentor : Neela Shantosh Kumar 
 
 
-# 🧠 Image Classification with Convolutional Neural Network (CNN)
+🧠 Image Classification with Convolutional Neural Network (CNN)
 
 This project implements an image classification pipeline using a Convolutional Neural Network (CNN) built with TensorFlow and Keras. The model is trained on the CIFAR-10 dataset, which contains 60,000 32x32 color images across 10 classes.
 
@@ -26,7 +26,7 @@ File/Folders	Description
 
 
 
-📊 Dataset - CIFAR-10
+# 📊 Dataset - CIFAR-10
 
 CIFAR-10 is a collection of images grouped into 10 different categories:
 
@@ -75,7 +75,7 @@ Dense (Output Layer with Softmax)
 
 
 
-🔍 Key Steps in the Notebook
+# 🔍 Key Steps in the Notebook
 
 1. Import Libraries
 
