@@ -8,7 +8,7 @@ Image Classification project using CNN in TensorFlow:
 - Company : CODETECH IT SOLUTIONS PVT Ltd.
 - Domain : Machine learning 
 - Duration : 6 Weeks 
-- Mentor : Neela Shantosh Kumar 
+- Mentor : Neela Shantosh 
 
 
 🧠 Image Classification with Convolutional Neural Network (CNN)
