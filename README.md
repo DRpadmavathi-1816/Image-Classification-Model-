@@ -1,3 +1,5 @@
+# Image-Classification-Model
+
 Image Classification project using CNN in TensorFlow:
 
 INTERNSHIP INFORMATION 
@@ -161,5 +163,3 @@ CIFAR-10 Dataset
 TensorFlow & Keras Documentation
 
 
-
-# Image-Classification-Model-
