@@ -2,7 +2,7 @@
 
 Image Classification project using CNN in TensorFlow:
 
-INTERNSHIP INFORMATION 
+# INTERNSHIP INFORMATION 
 
 - Name : Dhupam Renuka Padmavathi 
 - Company : CODETECH IT SOLUTIONS PVT Ltd.
@@ -11,7 +11,7 @@ INTERNSHIP INFORMATION
 - Mentor : Neela Shantosh Kumar 
 
 
-🧠 Image Classification with Convolutional Neural Network (CNN)
+# 🧠 Image Classification with Convolutional Neural Network (CNN)
 
 This project implements an image classification pipeline using a Convolutional Neural Network (CNN) built with TensorFlow and Keras. The model is trained on the CIFAR-10 dataset, which contains 60,000 32x32 color images across 10 classes.
 
@@ -126,7 +126,7 @@ You can visualize:
 
 
 
-🧪 How to Run
+# 🧪 How to Run
 
 1. Open the notebook: Image classification.ipynb
 
