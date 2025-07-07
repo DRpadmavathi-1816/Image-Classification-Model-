@@ -156,7 +156,7 @@ pip install tensorflow matplotlib numpy
 
 
 
-🙌 Credits
+# 🙌 Credits
 
 CIFAR-10 Dataset
 
